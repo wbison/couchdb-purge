@@ -4,8 +4,8 @@
 var async = require('async');
 var _ = require('underscore');
 
-//module.exports = function(config, cb) {
-var cb = null;
+module.exports = function(config, cb) {
+    var cb = null;
     var config = require('./config');
     var credentials = require('./credentials');
 
@@ -22,4 +22,4 @@ var cb = null;
     function process(err, list) {
         async.map(list, remove, cb);
     };
-//};
+};
