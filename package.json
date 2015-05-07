@@ -1,7 +1,7 @@
 {
   "name": "couchdb-purge",
   "version": "1.0.0",
-  "description": "",
+  "description": "Purge CouchDb documents",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +14,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/wbison/couchdb-purge/issues"
+  },
+  "bin": {
+    "couchdb-purge": "./cli.js"
   },
   "homepage": "https://github.com/wbison/couchdb-purge",
   "dependencies": {
