@@ -6,11 +6,11 @@ var _ = require('underscore');
 
 module.exports = function(config, cb) {
     var cb = null;
-    var config = require('./config');
-    var credentials = require('./credentials');
+    var _default = require('./default');
+    config = _.extend(_default, config);
 
-    if (credentials.user && credentials.password) {
-        var auth =  "Basic " + new Buffer(credentials.user + ":" + credentials.password).toString('base64');
+    if (config.user && config.password) {
+        var auth =  "Basic " + new Buffer(config.user + ":" + config.password).toString('base64');
         config.defaultHeaders = {
             'Authorization': auth
         };
