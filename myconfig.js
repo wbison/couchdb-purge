@@ -3,7 +3,7 @@
  */
 module.exports = {
     url: "http://localhost",
-    dbs: ["*"],
+    dbs: ["**"],
     _design_doc: {
         _id: "purge",
         language: "javascript",
