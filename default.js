@@ -4,6 +4,8 @@
 module.exports = {
     url: "http://localhost",
     dbs: ["*"],
+    testrun: false,
+    silent: false,
     _design_doc: {
         _id: "purge",
         language: "javascript",

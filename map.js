@@ -1,8 +1,8 @@
 module.exports = function(config) {
 
-    //  this is the function that defines which documents
+    //  This is the function that defines which documents
     //  are purged.
-    //  it will be included in the design document under the 'map' key
+    //  It will be included in the design document under the 'map' key
     return function(doc) {
 
         if (!doc || !doc.doctype || !doc.createdOn || !doc.id) {
