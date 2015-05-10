@@ -1,9 +1,5 @@
-/**
- * Created by wbison on 05-05-15.
- */
-/**
- * Created by wbison on 04-05-15.
- */
+//  test map function in map.js
+
 var map = require('./map')();
 
 var  o = {
