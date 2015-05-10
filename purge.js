@@ -6,6 +6,7 @@ module.exports = function(config) {
 
     var request = require('./purgerequest')(config);
     var _ = require('underscore');
+    var loginfo = require('./loginfo')(config);
 
     return function(db, cb) {
         db.view(config._design_doc._id, '_default', { limit: 10000 }, function(e,b) {
@@ -14,10 +15,21 @@ module.exports = function(config) {
             _(b.rows).each(function(row) {
                 r[row.key] =  [row.value];
             });
-            request(db, r, function(err,b) {
-                if (err) { return cb(err); }
-                db.compact(cb);
-            });
+
+            if (b.rows.length) {
+
+                console.log("Purging " + b.rows.length + " documents");
+                request(db, r, function(err,b) {
+                    if (err) { return cb(err); }
+                    db.compact(function(err,b) {
+                        loginfo(db);
+                    });
+                });
+
+            }
+            else {
+                console.log("Nothing to purge");
+            }
         });
     }
 }
